@@ -8,9 +8,9 @@ int main() {
     using i_limits = numeric_limits<size_t>;
     using ivector = vector<size_t>;
     using ull = unsigned long long;
-    using FFT_t = FFT_engine<18,float>;
-    using cvector = FFT_t::cvector;
-    using cscalar = FFT_t::cscalar;
+    using FFT_engine = FFT::engine<18,float>;
+    using cvector = FFT_engine::cvector;
+    using cscalar = FFT_engine::cscalar;
     const auto rounded_real = [](const cscalar& z) { return round(real(z)); };
     const size_t M = 4;
     ivector array_size(M);
@@ -18,7 +18,7 @@ int main() {
     for (size_t i = 0; i < M; ++i)
         cin >> array_size[i];
     ull K; cin >> K;
-    const FFT_t fft;
+    const FFT_engine fft;
     const size_t N = fft.N, u_min = i_limits::min(), u_max = i_limits::max();
     ivector f_min(M,u_max), f_max(M,u_min);
     vector<ivector> f(M,ivector(N));
