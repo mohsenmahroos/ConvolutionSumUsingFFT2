@@ -61,4 +61,5 @@ int main() {
         h[i] = rounded_real(H[i]);
     for (size_t y = 1; y < N; ++y)
         h[y] += h[y-1];
-    cout << binary_search(product_of_sums(f_min),product_of_sums(f_max)); }
+    cout << binary_search(product_of_sums(f_min),product_of_sums(f_max)); 
+    return 0; }
