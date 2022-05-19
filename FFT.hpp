@@ -5,7 +5,7 @@
 
 namespace FFT {
     template<size_t size, class number_t = float>
-    struct FFT_engine {
+    struct engine {
         enum type {FORWARD,INVERSE};
         using cscalar = std::complex<number_t>;
         using cvector = std::vector<cscalar>;
@@ -23,7 +23,7 @@ namespace FFT {
                             this->at(u).at(s).emplace_back(x,y); } } };
         const unity_roots WP;
     public:
-        inline FFT_engine() : WP() {}
+        inline engine() : WP() {}
         inline void transform(cvector &F, type t) const {
             for (size_t l = N>>1, m = N-1, j = 0, i = 1; i < m; ++i) {
                 size_t k = l;
